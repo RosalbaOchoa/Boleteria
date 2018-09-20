@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layouts/layout :: head"></head>
+</head>
+<body>
+<header th:replace="layouts/layout::header"></header>
+<div class="container">
+	<table class="table">
+ <thead>
+  <tr>
+     <th scope="col">ID</th>
+     <th scope="col">Nombre</th>
+     <th scope="col">Apellido</th>
+     <th scope="col">Apellido 2</th>
+     <th scope="col">Documento</th>
+     <th scope="col">Nacionalidad</th>
+     <th scope="col">Ingreso</th>
+     <th scope="col">Baja</th>
+     <th scope="col">Email</th>
+     <th scope="col">Tipo</th>
+     <th scope="col">Estado</th>
+  </tr>
+ </thead>
+ <tbody>
+ 
+  <tr th:each="cliente: ${customers}">     
+     <td th:text="${cliente.cli_num_documento}"/>
+     <td th:text="${cliente.nombre}" />
+     <td th:text="${cliente.apell_1}" />
+     <td th:text="${cliente.apell_2}" />
+     <td th:text="${cliente.tip_documento}" />
+     <td th:text="${cliente.nacionalidad}" />
+     <td th:text="${cliente.f_ingreso}" />
+     <td th:text="${cliente.f_baja}" />
+     <td th:text="${cliente.email}" />
+     <td th:text="${cliente.tip_cli}" />
+     <td th:text="${cliente.cod_estado}" />
+     <td> <a th:href="@{/form/} + ${cliente.cli_num_documento}" th:text="'Editar'" 
+             class="btn btn-primary btn-xs" ></a></td>
+     <td> <a th:href="@{/eliminar/} + ${cliente.cli_num_documento}" th:text="'Eliminar'" 
+             class="btn btn-danger btn-xs" 
+             onclick="return confirm('Estas seguro?')" ></a></td>
+  </tr>
+ </tbody>
+</table>
+</div>
+
+<a th:href="@{/form}" class="btn btn-primary">Crear Cliente</a>
+<a th:href="@{/}" class="btn btn-secondary">Regresar</a>
+<footer th:replace="layouts/layout::footer"></footer>
+</body>
+</html>

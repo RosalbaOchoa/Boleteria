@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layouts/layout :: head"></head>
+</head>
+<body>
+<header th:replace="layouts/layout::header"></header>
+	<div class="container">
+
+
+<form th:action="@{/form}" th:object="${cliente}" method="post" >
+	<div class="form-group">
+    	<label for="nombre">Nombre</label>
+    	<input type="text" class="form-control" id="name" placeholder="Nombre" th:field="*{nombre}"/>
+    	<small th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}" class="form-text text-danger"></small>
+  	</div>
+	<div class="form-group">
+    	<label for="apell_1">Apellido</label>
+    	<input type="text" class="form-control" id="apell_1" placeholder="Apellido" th:field="*{apell_1}"/>
+    	<small th:if="${#fields.hasErrors('apell_1')}" th:errors="*{apell_1}" class="form-text text-danger"></small>
+  	</div>
+  	<div class="form-group">
+    	<label for="apell_2">Apellido2</label>
+    	<input type="text" class="form-control" id="apell_2" placeholder="Apellido2" th:field="*{apell_2}"/>
+    	<small th:if="${#fields.hasErrors('apell_2')}" th:errors="*{apell_2}" class="form-text text-danger"></small>
+  	</div>
+   	<div class="form-group">
+    	<label for="tip_documento">Documento</label>
+    	<input type="text" class="form-control" id="tip_documento" placeholder="Tipo Documento" th:field="*{tip_documento}"/>
+    	<small th:if="${#fields.hasErrors('tip_documento')}" th:errors="*{tip_documento}" class="form-text text-danger"></small>
+  	</div>
+  	<div class="form-group">
+    	<label for="nacionalidad">Nacionalidad</label>
+    	<input type="text" class="form-control" id="nacionalidad" placeholder="Nacionalidad" th:field="*{nacionalidad}"/>
+    	<small th:if="${#fields.hasErrors('nacionalidad')}" th:errors="*{nacionalidad}" class="form-text text-danger"></small>
+  	</div>
+  	<div class="form-group">
+    	<label for="f_ingreso">Ingreso</label>
+    	<input type="text" class="form-control" id="f_ingreso" placeholder="Fecha de Ingreso" th:field="*{f_ingreso}"/>
+    	<small th:if="${#fields.hasErrors('f_ingreso')}" th:errors="*{f_ingreso}" class="form-text text-danger"></small>
+  	</div>
+  	<div class="form-group">
+    	<label for="f_baja">Baja</label>
+    	<input type="text" class="form-control" id="f_baja" placeholder="Fecha de Baja" th:field="*{f_baja}"/>
+    	<small th:if="${#fields.hasErrors('f_baja')}" th:errors="*{f_baja}" class="form-text text-danger"></small>
+  	</div>
+	<div class="form-group">
+    	<label for="email">Correo Electronico</label>
+    	<input type="text" class="form-control" id="email" placeholder="Correo" th:field="*{email}"/>
+    	<small th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="form-text text-danger"></small>
+  	</div>  	
+  	<div class="form-group">
+    	<label for="tip_cli">Tipo</label>
+    	<input type="text" class="form-control" id="tip_cli" placeholder="valor" th:field="*{tip_cli}"/>
+    	<small th:if="${#fields.hasErrors('tip_cli')}" th:errors="*{tip_cli}" class="form-text text-danger"></small>
+  	</div>
+  	<div class="form-group">
+    	<label for="cod_estado">Estado</label>
+    	<input type="text" class="form-control" id="cod_estado" placeholder="Estado" th:field="*{cod_estado}"/>
+    	<small th:if="${#fields.hasErrors('cod_estado')}" th:errors="*{cod_estado}" class="form-text text-danger"></small>
+  	</div>
+  	<input type="submit" value="Crear cliente" class="btn btn-primary"/>
+  	<a th:href="@{/listar}" class="btn btn-secondary">Regresar</a>
+	<input type="hidden" id="cli_num_documento" th:field="*{cli_num_documento}">
+</form>
+
+
+	</div>
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
